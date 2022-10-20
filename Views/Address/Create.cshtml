@@ -1,0 +1,79 @@
+
+
+@model HettisentialMvc.CreateAddressRequestModel
+
+  
+
+
+  @if(ViewBag.Error != null)
+        {
+            <div style="color: red; font-weight: bolder; background-color: white; padding: 5px">
+                <label style="text-align: center">@ViewBag.Error</label>
+            </div>
+        }
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Dashboard | Sign Up</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Start creating the best possible user experience for you customers</p>
+    <form class="sign-up-form form" asp-action="Create" asp-controller="  Address  " method="post">
+      <label class="form-label-wrapper">
+        <p class="form-label">Country</p>
+        <input class="form-input" asp-for="Country"  type="text" placeholder="Enter The Name Country" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">StreetAddress</p>
+        <input class="form-input" asp-for="StreetAddress"   type="text" placeholder="Enter your  StreetAddress " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">LocalGovernmentArea</p>
+        <input class="form-input" asp-for="LocalGovernmentArea"  type="text" placeholder="Enter your LocalGovernmentArea" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">City</p>
+        <input class="form-input"  asp-for="City"  type="text" placeholder="Enter your City" required>
+      </label>
+       <label class="form-label-wrapper">
+        <p class="form-label">State</p>
+        <input class="form-input"  asp-for="State"     type="text" placeholder="Enter  your State Name" required>
+      </label> 
+  
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PostalCode</p>
+        <input class="form-input" asp-for="PostalCode"   type="number" placeholder="Enter  your PostalCode" required>
+      </label>
+
+        
+
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Sign In</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+</body>
+</html>      

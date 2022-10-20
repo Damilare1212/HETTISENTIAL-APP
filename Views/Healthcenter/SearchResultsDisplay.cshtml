@@ -1,0 +1,58 @@
+
+
+@model IEnumerable<HettisentialMvc.HealthCenterDto>
+@{
+    var data =  (IEnumerable<HealthCenter>) ViewData["Searches"] ;
+}
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="row">
+    <div class="col-md-4">
+        <h2>HealthCenters</h2>
+ 
+        <table class="table table-bordered">
+          
+            <thead>
+                <tr>
+                     <th>HealthCenterName</th>
+                    <th>Category</th>
+                    <th>Email</th>
+                      <th>PhoneNumber</th>
+                        <th>HoursOfWork</th>
+                          <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var healthCenter in data  )
+                {
+                    <tr>
+                    <td>@healthCenter.HealthCenterName</td>
+                    <td>@healthCenter.Category</td>
+                     <td>@healthCenter.Email</td>
+                     <td>@healthCenter.PhoneNumber</td>
+                      <td>@healthCenter.HoursOfWork</td>
+                       <td>@healthCenter.Image</td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+

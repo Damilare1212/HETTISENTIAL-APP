@@ -1,0 +1,178 @@
+@* @{
+   Layout = "_AdminLayout";
+} *@
+
+@model HettisentialMvc.CreateAdminRequestModel
+
+
+        @* public string FirstName {get; set; }
+        public string LAstName {get; set; }
+        public string UserName { get; set; }
+        public string AdminEamil {get; set; }
+        public string Password {get; set; }
+        public DateTime DateOfBirth {get;set; }
+        public Gender Gender {get; set; }
+        public string Address {get; set; }
+        public IFormFile AdminImage {get; set; }
+        public string PhoneNumber {get; set; }
+          public AdminType AdminCategory {get; set; } *@
+
+
+    
+
+       @* <div>
+    <form asp-action= "Create" method="post" asp-controller="Admin" >
+        <div>
+            <label>Name</label>
+            <input type="text" style="width: 100px;" name="FirstName" required placeholder="FirstName" />
+        </div>
+        <div>
+            <label>LastName</label>
+            <input type="text" name="LastName" style="width: auto;" placeholder="LastName" required/>
+        </div>
+          <div>
+            <label>UserName</label>
+            <input type="text" name="UserName" style="width: auto;" placeholder="UserName" required/>
+        </div>
+         <div>
+            <label>Email</label>
+            <input type="text" name="Email"  style="width: 100px;" placeholder="Email" required/>
+        </div>
+         <div>
+            <label>PhoneNum</label>
+            <input type="text" name="PhoneNum" style="width: 100px;" placeholder="PhoneNumber" required/>
+        </div>
+         <div>
+            <label>DateOfBirth</label>
+            <input type="date" name="DateOfBirth"  style="width: 100px;" placeholder="DateOfBirth" required/>
+        </div>
+         <div>
+            <label>Address</label>
+            <input type="text" name="Address"  style="width: 100px;" placeholder="Adderess" required/>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="Password"  style="width: 100px;" placeholder="Password" required/>
+        </div>
+        <div>
+            <label>Gender</label>
+           <select asp-for="Gender" asp-items="@Html.GetEnumSelectList(typeof(Gender))" required></select>
+        </div>
+           <div>
+            <label>Image</label>
+            <input type="file" name="Image"  style="width: 100px;" placeholder="Image" required/>
+        </div>
+         <div>
+            <label>AdminCategory</label>
+           <select asp-for="AdminCategory" asp-items="@Html.GetEnumSelectList(typeof(AdminType))" required></select>
+        </div>
+        <div>
+            <input type="submit" style="color: Blue;"  style="width: 100px;" value="Submit"/>
+        </div>
+    </form>
+     <dl>
+        <a asp-action="Index">Go Back To Admin Page</a>
+    </dl>
+</div>
+
+    *@
+
+
+
+
+
+
+
+
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sign-up Page</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Admin sign-up</h1>
+    <p class="sign-up__subtitle">Fill in The Form To Create An Admin</p>
+    <form class="sign-up-form form" asp-action="Create" asp-controller="Admin" method="post" enctype="multipart/form-data" >
+      <label class="form-label-wrapper">
+        <p class="form-label">FirstName</p>
+        <input class="form-input" type="text" name="FirstName" asp-for = "FirstName"  placeholder="Enter your FirstName" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">LAstName</p>
+        <input class="form-input" type="text" name="LAstName" asp-for = "LAstName" placeholder="Enter your  LastName " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">UserName</p>
+        <input class="form-input" type="text" name="UserName" asp-for = "UserName" placeholder="Enter your UserName" required>
+      </label>
+       
+         <label class="form-label-wrapper">
+        <p class="form-label">AdminEamil</p>
+        <input class="form-input" type="email" name="AdminEamil" asp-for = "AdminEamil" placeholder="Enter your AdminEamil" required>
+      </label>
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PhoneNumber</p>
+        <input class="form-input" type="text" name="PhoneNumber" asp-for = "PhoneNumber" placeholder="Enter your PhoneNumber" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">DateOfBirth</p>
+        <input class="form-input" type="date" name="DateOfBirth" asp-for = "DateOfBirth" placeholder="Enter your DateOfBirth" required>
+      </label>
+      
+        <label class="form-label-wrapper">
+        <p class="form-label">Password</p>
+        <input class="form-input" type="password" name="Password" asp-for = "Password" placeholder="Enter your Password" required>
+      </label>
+
+     <label class="form-label-wrapper">
+        <p class="form-label">Gender</p>
+           <select asp-for="Gender"  name="Gender" asp-items="@Html.GetEnumSelectList(typeof(Gender))" required></select>
+      </label>
+
+        <label class="form-label-wrapper">
+        <p class="form-label">Address</p>
+          <input class="form-input" type="text" name="Address" asp-for = "Address" placeholder="Enter your Address" required>
+      </label>
+
+     
+       <label class="form-label-wrapper">
+        <p class="form-label">Image</p>
+        <input class="form-input" type="file" name="AdminImage" asp-for = "AdminImage"   required>
+      </label>
+
+       <label class="form-label-wrapper">
+        <p class="form-label">AdminCategory</p>
+            @* <label>AdminCategory</label> *@
+           <select asp-for="AdminCategory" name="AdminCategory" asp-for = "AdminCategory" asp-items="@Html.GetEnumSelectList(typeof(AdminType))" required></select>
+      </label>
+
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+</body>
+
+</html>

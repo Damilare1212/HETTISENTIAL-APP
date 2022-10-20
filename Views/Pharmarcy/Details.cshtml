@@ -1,0 +1,73 @@
+
+
+@model HettisentialMvc.PharmacyDTo
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item active">Profile</li> *@
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+  <form asp-action="Details"  asp-controller="Pharmarcy" >
+
+
+       <dl class="row">
+            <dt class="col-sm-2">
+                Photo:
+            </dt>
+            <dd class="col-sm-10">
+                <img class="card-img" style="height:200px; width:200px" src="~/images/@Model.PharmacyImage" />
+                <a href="~/wwwroot/images/@Model.PharmacyImage" download="@Model.PharmacyImage">
+                    <input class="btn btn-outline-primary" type="button" value="Download Photo" /></a>
+            </dd>
+            <dt class="col-sm-2">
+                PharmacyName:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.PharmacyName
+            </dd>
+            <dt class="col-sm-2">
+                HoursOfWork:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.HoursOfWork
+            </dd>
+            <dt class="col-sm-2">
+                Email:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Email
+            </dd>
+            <dt class="col-sm-2">
+                PhoneNumber:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.PhoneNumber
+            </dd>
+            <dt class="col-sm-2">
+                @* Address:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.address
+            </dd> *@
+
+        </dl>
+    
+<dd>
+                <a asp-action="GetAll" asp-controller="Pharmarcy">Back</a>
+            </dd>
+
+
+  </form>
+  </section>
+       
+</main>

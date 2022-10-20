@@ -1,0 +1,84 @@
+@* @{
+   Layout = "_AdminLayout";
+} *@
+
+@model HettisentialMvc.AdministratorDto
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item active">Profile</li> *@
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+  <form asp-action="Details"  asp-controller="Admin" >
+      
+
+       @* @foreach (var admin in Model)
+       {
+
+
+       } *@
+    
+       <dl class="row">
+            <dt class="col-sm-2">
+                Photo:
+            </dt>
+             @* <img class="card-img" style="width: 100px; height: 100px;" src="~/myImages/@Model.AdminImage"> *@
+
+            <dd class="col-sm-10">
+                <img class="card-img" style="height:200px; width:200px" src="~/myImages/@Model.AdminImage"/> @*src="~/img/avatar/avatar-illustrated-02.png"*@ 
+                <a href="~/wwwroot/myImages/@Model.AdminImage" download="@Model.AdminImage">
+                    <input class="btn btn-outline-primary" type="button" value="Download Photo" /></a>
+            </dd>
+            <dt class="col-sm-2">
+                FirstName:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.FirstName
+            </dd>
+            <dt class="col-sm-2">
+                LastName:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.LAstName
+            </dd>
+            <dt class="col-sm-2">
+                Email:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.AdminEmail
+            </dd>
+            <dt class="col-sm-2">
+                Gender:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Gender
+            </dd>
+            <dt class="col-sm-2">
+                Address:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Address
+            </dd>
+
+        </dl>
+    
+
+
+<dd>
+                <a asp-action="GetAll" asp-controller="Admin">Back</a>
+            </dd>
+
+
+  </form>
+  </section>
+       
+</main>

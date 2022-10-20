@@ -1,0 +1,102 @@
+@* @{
+   Layout = "_AdminLayout";
+} *@
+
+@model IEnumerable<HettisentialMvc.AdministratorDto>
+
+    <main id="main" class="main">
+
+    <div class="pagetitle">
+        
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+
+
+
+        <div class="card-header" style="background-color: #65c9cd;">
+            <div class="card-title">
+                <h1 class="text-center">All Registered Admins</h1>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.LAstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminEmail)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminImage)
+                    </th>
+
+
+
+                    <th>
+                        Update
+                    </th>
+                    <th>
+                        Details
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var admin in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => admin.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => admin.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => admin.LAstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => admin.AdminEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => admin.PhoneNumber)
+                        </td>
+                        <td>
+                             <img  class="rounded-circle"   asp-append-version="true" style="width: 200px; height: 200px;" src="~/myImages/@admin.AdminImage" alt="Image" >
+                                  
+                        </td>
+                        <td>
+                            <a asp-action="Update" asp-route-id="@admin.Id">Update</a>
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@admin.Id">Details</a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@admin.Id">Delete</a>
+                        </td>
+                         @* <td>
+                            <a asp-action="Profile" asp-route-id="@admin.Id">Profile</a>
+                        </td> *@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

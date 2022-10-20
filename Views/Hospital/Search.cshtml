@@ -1,0 +1,101 @@
+
+
+@model IEnumerable< HettisentialMvc.Hospital >
+
+     @{
+        ViewData["Title"] = "All Regisered HealthCenter";
+       var val =  ViewData["MySearch"];
+       int Sno = 0;
+
+    }
+
+
+    <form method=" get" asp-action="Search"asp-controller="Hospital" >
+
+       <input autocomplete="off" spellcheck="false" role="combobox" aria-live="polite" type="search" 
+       placeholder="Search by Name Email or Country..... "    
+       value="@ViewData["MySearch"]"  name="text" style="width: ;7000px" >
+       <input type="submit" value="Search" class="btn btn-primary">
+       <a  asp-action="Search" > All Regitered  Hospital  </a>
+ 
+         
+
+
+
+          
+<div style="margin-top: 10px;" >
+              <div class="text-center"></div>
+                  <strong>Search for Hospital</strong>
+                  <div>
+                     <a  asp-controller= "Healthcenter"  asp-action="Search">Search for Healthcenter </a>
+                  </div>
+
+
+
+
+
+
+
+ <strong>Search for Pharmarcy</strong>
+                  <div>
+                     <a  asp-controller= "Pharmarcy"  asp-action="Search"> Search for Pharmarcy </a>
+                  </div>
+
+
+
+
+
+
+                   <strong>Search for  Medical Lab  </strong>
+                  <div>
+                     <a  asp-controller= "MedicalLab"  asp-action="Search"> Search for  Medical Lab </a>
+                  </div>
+
+                    </div>
+
+
+
+
+
+
+
+    <div class="row">
+    <div class="col-md-4">
+          
+        <table class="table table-bordered">
+            <th>
+
+            <thead>
+                <tr>
+                <th>S/N</th>
+                     <th>  @Html.DisplayNameFor(model => model.Name)</th>
+                    <th>  @Html.DisplayNameFor(model => model.HealthCenterCategory)</th>
+                    <th>  @Html.DisplayNameFor(model => model.Email)</th>
+                      <th>  @Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                        <th>  @Html.DisplayNameFor(model => model.HoursOfWork)</th>
+                          <th>  @Html.DisplayNameFor(model => model.Image)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var healthCenter in Model)
+                {
+                  Sno = Sno+=1;
+
+                    <tr>
+                      <td>@Sno</td>
+                    <td>@healthCenter.Name</td>
+                    <td>@healthCenter.HealthCenterCategory</td>
+                     <td>@healthCenter.Email</td>
+                     <td>@healthCenter.PhoneNumber</td>
+                      <td>@healthCenter.HoursOfWork</td>
+                       <td>
+                             <img class="card-img" asp-append-version="true" alt="Healthcenter Image"  style="width: 350px; height: 350px;" src="~/myImages/@healthCenter.HospitalImage">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+                </form>
+    </div>
+    
+</div>

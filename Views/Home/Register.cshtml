@@ -1,0 +1,101 @@
+
+
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Sign Up</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-Up">
+    <h1 class="sign-up__title">Sign Up Here</h1> 
+         <form>
+     <p class="w-100 text-center" style="color: green">&mdash;Sign Up Here &mdash;</p>
+		          <div class="text-center">
+
+                <div style="margin-top: 10px;" >
+                  <strong>Create user account</strong>
+                  <div>
+                     <a  asp-controller= "Patient"  asp-action="Create">Create user Account</a>
+                  </div>
+                 
+         
+
+                </div>
+
+	          	  <div style="margin-top: 10px;">
+                    <strong>Create Hospital account</strong>
+                    <div>
+                        <a  asp-controller= "Hospital"  asp-action="Create">Create Hospital Account </a>
+                    </div>
+                  
+                     
+                </div>
+
+	          		@* <div  style="margin-top: 10px;" >
+                    <strong>Create Admin account</strong>
+                    <div>
+                       <a  asp-controller= "Admin"  asp-action="Create">Create New Admin</a>
+                    </div>
+                  *@
+                     <div style="margin-top: 10px;">
+                      
+                         <strong>Create Pharmarcy Account</strong>
+                    <div>
+                      <div>
+                            <a asp-controller="Pharmarcy" asp-action="Create" >Create Pharmarcy Account</a></li>
+                      </div>
+                       </div>
+
+                          
+                    <div style="margin-top: 10px;">
+                       <strong>Create Medical Lab Account</strong>
+                      <div>
+                            <a asp-controller="MedicalLab" asp-action="Create" >Create MedicalLab Account</a></li>
+                      </div>
+                       </div>
+
+
+
+                         
+                    <div  style="margin-top: 10px;" >
+                        <strong>Create Healthcenter Account</strong>
+                      <div>
+                            <a asp-controller="Healthcenter" asp-action="Create" >Create Healthcenter Account</a></li>
+                      </div>
+                       </div>
+		          </div>
+
+
+    </form>
+   
+
+   
+    
+    
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+<script src="~/js/site.js" asp-append-version="true"  ></script>
+<script src="~/js/sitee.js" asp-append-version="true"  ></script>
+</body>
+
+</html>

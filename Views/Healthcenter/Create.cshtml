@@ -1,0 +1,168 @@
+
+
+@model HettisentialMvc.CreateHealthCenterRequestModel
+
+   @* public string HealthCenterName {get ; set; }
+        public string Category {get; set; }
+       
+        public string Email {get ; set; }
+        public string PhoneNumber {get ; set; }
+         public ICollection<ImageDTO> Images {get; set; } = new HashSet<ImageDTO>();
+           public string WebsiteUrl  {get ; set; }
+        public string Description  {get ; set; }
+        public Address address { get; set;  }
+        public User User{get;set;}
+       //  public WeekDay weekDays  {get ; set; }
+         public  string HoursOfWork  {get ; set; }  
+
+           public IFormFile Image{get; set;}
+         public List<HealthCenterService> healthCenterServices  {get; set; } = new  List<HealthCenterService>(); *@
+
+
+
+
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Sign Up Page </title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Fill in The form To Create HealthCenter</p>
+    <form class="sign-up-form form" asp-action="Create" asp-controller="Healthcenter" method="post"  enctype="multipart/form-data" >
+      <label class="form-label-wrapper">
+        <p class="form-label">HealthCenterName</p>
+        <input class="form-input" type="text"   asp-for = "HealthCenterName"  name = "HealthCenterName" placeholder="Enter The Name of Your HealthCenterName  " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Category</p>
+        <input class="form-input" type="text" name = "Category" asp-for = "Category" placeholder="Enter HealthCenter  Category " required>
+      </label>
+      
+       
+         <label class="form-label-wrapper">
+        <p class="form-label">Email</p>
+        <input class="form-input" type="email"  name = "Email"  asp-for = "Email" placeholder="Enter HealthCenter Email " required>
+      </label>
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PhoneNumber</p>
+        <input class="form-input" type="text"  name = "PhoneNumber"  asp-for = "PhoneNumber" placeholder="Enter HealthCenter PhoneNumber" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">WebsiteUrl</p>
+        <input class="form-input" type="text"  asp-for = "WebsiteUrl" name = "WebsiteUrl" placeholder="Enter your WebsiteUrl"  >
+      </label>
+      
+
+       <label class="form-label-wrapper">
+        
+             <p class="form-label">Upload Image</p>
+           @* // <input type="file" asp-for="Image" name="Image" required/> *@
+             <input class="form-input" type="file"  asp-for = "IHealthCenterImage" name = "IHealthCenterImage" required>
+       
+      </label> 
+            
+             <label class="form-label-wrapper">
+        <p class="form-label">Description</p>
+        <input class="form-input" type="text"  asp-for = "Description" name = "Description" placeholder="Enter HealthCenter Description" required>
+      </label>
+
+          <label class="form-label-wrapper">
+        <p class="form-label">HoursOfWork</p>
+        <input class="form-input" type="text"  asp-for = "HoursOfWork" name = "HoursOfWork" placeholder="Enter HealthCenter HoursOfWork" required>
+      </label>
+
+       
+
+
+
+          
+      <label class="form-label-wrapper">
+        <p class="form-label">StreetAddress</p>
+        <input class="form-input" asp-for="StreetAddress"   type="text" placeholder="Enter your  StreetAddress " required>
+      </label>
+     
+      <label class="form-label-wrapper">
+        <p class="form-label">City</p>
+        <input class="form-input"  asp-for="City"  type="text" placeholder="Enter your City" required>
+      </label>
+       <label class="form-label-wrapper">
+
+         <label class="form-label-wrapper">
+        <p class="form-label">Country</p>
+        <input class="form-input" class="form-control" asp-for="Country"  name="Country"  readonly value="Nigeria" type="text"  placeholder="Country" >
+
+        
+        
+      </label>
+
+        <p class="form-label">State</p>
+         @* <select style="scrollbar-3dlight-color:blue" asp-for="State" asp-items="ViewBag.States" id="state"> </select> *@
+          <select name="state" asp-for="State" type="text" id="state" class="form-control" placeholder="State"> </select>
+           
+                @* <span asp-validation-for="State" class="text-danger"></span> *@
+      </label> 
+  
+        <label class="form-label-wrapper">
+        <p class="form-label">LocalGovernmentArea</p>
+        @* <input class="form-input" asp-for="LocalGovernmentArea"  type="text" placeholder="Enter your LocalGovernmentArea" required> *@
+
+         @* <select style="scrollbar-3dlight-color:blue" asp-for="LocalGovernmentArea" id="lga"> </select> *@
+         
+                @* <span class="text-danger"></span> *@
+
+                    <select  asp-validation-for="LocalGovernmentArea" name=" LocalGovernmentArea" asp-for="LocalGovernmentArea" onfocus="displayCities();" id="lga" type="text"  class="form-control" placeholder="LGA"></select>
+
+            
+      </label>
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PostalCode</p>
+        <input class="form-input" asp-for="PostalCode"   type="number" placeholder="Enter  your PostalCode" required>
+      </label>
+
+
+
+
+
+              
+                 
+
+ 
+
+
+
+
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+<script src="~/js/site.js" asp-append-version="true"  ></script>
+<script src="~/js/sitee.js" asp-append-version="true"  ></script>
+</body>
+
+</html>
+

@@ -1,0 +1,147 @@
+@model HettisentialMvc.UpdateMedicalLabRequestModel
+
+
+
+           @* public string LabName {get ; set; }
+        public string Category {get; set; }
+      
+        public string Email {get ; set; }
+        
+        public string PhoneNumber {get ; set; }
+          public IFormFile Image{get; set;}
+         public ICollection<ImageDTO> Images {get; set; } = new HashSet<ImageDTO>();
+          public string WebsiteUrl  {get ; set; }
+        public string Description  {get ; set; }
+          public int UserId{get;set;}
+          // public WeekDay weekDays  {get ; set; }
+            public  string HoursOfWork  {get ; set; }  
+          
+       public List<medicalLabService > medicalLabServices {get; set; } = new List<medicalLabService>();
+    } *@
+
+
+
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Edit MedicalLab</p>
+    <form class="sign-up-form form" asp-action="Update" asp-controller="MedicalLab" method="post">
+      <label class="form-label-wrapper">
+        <p class="form-label">LabName</p>
+        <input class="form-input" type="text"   asp-for = "LabName"  name = "LabName" placeholder="Enter The Name of Your Lab " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Category</p>
+        <input class="form-input" type="text" name = "Category" asp-for = "Category" placeholder="Enter HealthCenter  Category " required>
+      </label>
+      
+       
+         <label class="form-label-wrapper">
+        <p class="form-label">Email</p>
+        <input class="form-input" type="email"  name = "Email"  asp-for = "Email" placeholder="Enter HealthCenter Email " required>
+      </label>
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PhoneNumber</p>
+        <input class="form-input" type="number"  name = "PhoneNumber"  asp-for = "PhoneNumber" placeholder="Enter HealthCenter PhoneNumber" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">WebsiteUrl</p>
+        <input class="form-input" type="text"  asp-for = "WebsiteUrl" name = "WebsiteUrl" placeholder="Enter your WebsiteUrl"  >
+      </label>
+      
+
+       <label class="form-label-wrapper">
+        
+             <p class="form-label">Upload Image</p>
+           @* // <input type="file" asp-for="Image" name="Image" required/> *@
+             <input class="form-input" type="file"  asp-for = "LabImage" name = "LabImage" required>
+       
+      </label> 
+            
+             <label class="form-label-wrapper">
+        <p class="form-label">Description</p>
+        <input class="form-input" type="text"  asp-for = "Description" name = "Description" placeholder="Enter HealthCenter Description" required>
+      </label>
+
+          <label class="form-label-wrapper">
+        <p class="form-label">HoursOfWork</p>
+        <input class="form-input" type="text"  asp-for = "HoursOfWork" name = "HoursOfWork" placeholder="Enter HealthCenter HoursOfWork" required>
+      </label>
+
+       
+
+
+
+           <label class="form-label-wrapper">
+        <p class="form-label">Country</p>
+        <input class="form-input" asp-for="Country"  type="text" placeholder="Enter The Name Country" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">StreetAddress</p>
+        <input class="form-input" asp-for="StreetAddress"   type="text" placeholder="Enter your  StreetAddress " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">LocalGovernmentArea</p>
+        <input class="form-input" asp-for="LocalGovernmentArea"  type="text" placeholder="Enter your LocalGovernmentArea" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">City</p>
+        <input class="form-input"  asp-for="City"  type="text" placeholder="Enter your City" required>
+      </label>
+       <label class="form-label-wrapper">
+        <p class="form-label">State</p>
+        <input class="form-input"  asp-for="State"     type="text" placeholder="Enter  your State Name" required>
+      </label> 
+  
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PostalCode</p>
+        <input class="form-input" asp-for="PostalCode"   type="number" placeholder="Enter  your PostalCode" required>
+      </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+
+
+@model HettisentialMvc.UpdatePharmacyRequestsmodel
+
+
+
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Sign Up</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Fill in The Form To Update Pharmarcy</p>
+    <form class="sign-up-form form" asp-action="Update" asp-controller="Pharmarcy" method="post">
+      <label class="form-label-wrapper">
+        <p class="form-label">PharmacyName</p>
+        <input class="form-input" type="text"   asp-for = "PharmacyName" placeholder="Enter The Name of Your Pharmacy  " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Category</p>
+        <input class="form-input" type="text"  asp-for = "Category" placeholder="Enter Pharmarcy  Category " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Description</p>
+        <input class="form-input" type="text"  asp-for = "Description" placeholder="Enter Pharmacy Description" required>
+      </label>
+       
+         <label class="form-label-wrapper">
+        <p class="form-label">Email</p>
+        <input class="form-input" type="email"  asp-for = "Email" placeholder="Enter Pharmarcy Email " required>
+      </label>
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PhoneNumber</p>
+        <input class="form-input" type="number"  asp-for = "PhoneNumber" placeholder="Enter Pharmarcy PhoneNumber" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">WebsiteUrl</p>
+        <input class="form-input" type="url"  asp-for = "WebsiteUrl" placeholder="Enter your WebsiteUrl"  >
+      </label>
+      
+       
+    
+
+
+
+
+
+                                     
+            
+                 
+
+
+      @* <label class="form-label-wrapper">
+        <p class="form-label">Images</p>
+        <input class="form-input"  asp-for = "Images" type="file" class="file-upload-default" placeholder="Upload your Images"   multiple>
+            
+                    <input type="text" style="border: 2px solid rgb(150, 135, 135); width: 10px" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                    <span class="input-group-append">
+                      <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                    </span>
+      </label> *@
+            
+             <label class="form-label-wrapper">
+        <p class="form-label">Description</p>
+        <input class="form-input" type="text"  asp-for = "Description" placeholder="Enter Pharmarcy Description" required>
+      </label>
+
+          <label class="form-label-wrapper">
+        <p class="form-label">HoursOfWork</p>
+        <input class="form-input" type="text"  asp-for = "HoursOfWork" placeholder="Enter Pharmarcy HoursOfWork" required>
+      </label>
+
+       
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Update</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+</body>
+
+</html>

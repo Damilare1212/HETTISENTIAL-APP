@@ -1,0 +1,88 @@
+
+  @* public string FirstName {get; set; }
+         public string LastName {get; set; }
+         public  string Email {get; set; }
+         public string PassWord {get; set; }
+         public IFormFile  AdminImage {get; set; }
+         public string UserName {get; set; }
+           public AdminType AdminCategory {get; set; } *@
+
+@model HettisentialMvc.UpdateAdminRequestModel
+
+@if(ViewBag.Error != null)
+        {
+            <div style="color: red; font-weight: bolder; background-color: white; padding: 5px">
+                <label style="text-align: center">@ViewBag.Error</label>
+            </div>
+        }
+     <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Edit Admin</p>
+    <form class="sign-up-form form" asp-action="Update" asp-controller="Admin" method="post">
+      <label class="form-label-wrapper">
+        <p class="form-label">FirstName</p>
+        <input class="form-input" asp-for="FirstName" name="FirstName" type="text" placeholder="Enter your FirstName" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">LastName</p>
+        <input class="form-input" asp-for="LastName" name="LastName" type="text" placeholder="Enter your  LastName " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">UserName</p>
+        <input class="form-input" asp-for="UserName" name="UserName" type="text" placeholder="Enter your UserName" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">Email</p>
+        <input class="form-input"  asp-for="Email" name="Email" type="number" placeholder="Enter your Email" required>
+      </label>
+       <label class="form-label-wrapper">
+        <p class="form-label">PassWord</p>
+        <input class="form-input"  asp-for="PassWord" name="PassWord"   type="date" placeholder="Enter your PassWord" required>
+      </label> 
+  
+
+      <label class="form-label-wrapper">
+        <p class="form-label">Image</p>
+        <input class="form-input" asp-for="AdminImage" name="AdminImage" type="file" placeholder="Upload your Image" required>
+      </label>
+
+       <label class="form-label-wrapper">
+        <p class="form-label">AdminCategory</p>
+            @* <label>AdminCategory</label> *@
+           <select asp-for="AdminCategory" asp-for="AdminCategory" name="AdminCategory" asp-items="@Html.GetEnumSelectList(typeof(AdminType))" required></select>
+      </label>
+
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Update Admin</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+</body>
+
+</html>

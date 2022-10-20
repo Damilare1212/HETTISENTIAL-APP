@@ -1,0 +1,83 @@
+
+
+
+@model HettisentialMvc.HealthCenterDto
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item active">Profile</li> *@
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+  <form asp-action="Details"  asp-controller="Healthcenter" >
+
+
+       <dl class="row">
+            <dt class="col-sm-2">
+                Photo:
+            </dt>
+            <dd class="col-sm-10">
+                <img class="card-img" style="height:200px; width:200px" src="~/images/@Model.IHealthCenterImage" />
+                <a href="~/wwwroot/images/@Model.IHealthCenterImage" download="@Model.IHealthCenterImage">
+                    <input class="btn btn-outline-primary" type="button" value="Download Photo" /></a>
+            </dd>
+            <dt class="col-sm-2">
+                HealthCenterName:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.HealthCenterName
+            </dd>
+            <dt class="col-sm-2">
+                HoursOfWork:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.HoursOfWork
+            </dd>
+            <dt class="col-sm-2">
+                Email:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Email
+            </dd>
+            <dt class="col-sm-2">
+                PhoneNumber:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.PhoneNumber
+            </dd>
+            <dt class="col-sm-2">
+                
+                Country:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Country
+            </dd>
+
+                State:
+            </dt>
+            <dd class="col-sm-10">
+                @Model.State
+            </dd>
+
+        </dl>
+    
+
+
+<dd>
+                <a asp-action="GetAll" asp-controller="Healthcenter">Back</a>
+            </dd>
+
+            
+  </form>
+  </section>
+       
+</main>

@@ -1,0 +1,255 @@
+@* 
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nearby  Health service Page</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+</head>
+<body>
+	<div class="ui">
+		<div class="buttons">
+			<div class="col-3">
+				<h1>AVAILABLE HEALTH SERVICES</h1>
+			</div>
+			<div class="col-6">
+				<h2  style  =  "color: white"  > CLICK THE BUTTON TO POINT OUT AVAILABLE HEALTH SERVICES: </h2> 
+				<button id="hosp">Hospital</button>
+			 
+			 
+			
+			</div>
+		</div>
+	</div>
+	<div id="map">
+       
+	</div>
+<script src="./js/index.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDLIFDc3H8nRLLvA0I-sr2U_c9v5-QsUc&libraries=places&callback=initMap" async defer>
+	</script>
+ 
+	
+</body>
+<html> *@
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nearby  Health service Page</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	@* <link rel="stylesheet" href="css/style.css"> *@
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<style>
+
+		html, body{
+	height: 100%;
+	margin: 0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+}
+#map{
+	height: calc(100% - 60px);
+}
+.col-3{
+	width: 33.3%;
+	display:flex;
+	flex-wrap:wrap;
+}
+.col-6{
+	width: 66.6%;
+	display:flex;
+}
+.ui{
+	width: 100%;
+	height: 60px;
+	background-color: #337ab7;
+}
+.noLocation{
+	background-color: red;
+}
+.buttons{
+	display:flex;
+	flex-wrap:wrap;
+}
+.buttons h1{
+	margin-top:9px;
+	margin-left: 6px;
+}
+.buttons i{
+	padding:15px;
+}
+.buttons h4{
+	width: 100%;
+	text-align: right;
+	margin-right: 5px;
+	font-weight: 100;
+}
+.buttons button{
+	background-color: #F9F9F9;
+	border:none;
+	height: 60px;
+	color:black;
+	font-weight: 100;
+	width: 100px;
+	margin-right: 5px;
+}
+.buttons button:hover{
+	background-color: #F0f0f0;
+	cursor:pointer;
+}
+
+ screen and (max-width: 930px){
+	.ui{
+		height: 160px;
+	}
+	.col-3{
+		width: 100%;
+	}
+	.col-3 h1{
+		text-align: center;
+	}
+	.col-6{
+		width: 100%;
+		flex-wrap:wrap;
+	}
+	.col-6 h4{
+		margin:0;
+		padding:0;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.col-6 button{
+		width: calc(20% - 5px);
+	}
+	.col-6 button:last-of-type{
+	}
+}
+
+	</style>
+
+</head>
+<body>
+	<div class="ui">
+		<div class="buttons">
+			<div class="col-3">
+				<h1>AVAILABLE HEALTH SERVICES</h1>
+			</div>
+			<div class="col-6">
+				<h2  style  =  "color: white"  > CLICK THE BUTTON TO POINT OUT AVAILABLE HEALTH SERVICES: </h2> 
+				<button id="hosp">Hospital</button>
+			 
+			 
+			
+			</div>
+		</div>
+	</div>
+	<div id="map">
+       
+	</div>
+<script >
+	
+var markers = [];
+var infowindow;
+
+function initMap(){
+	navigator.geolocation.getCurrentPosition(
+		function(position){
+			var loc = {lat: 7.150130,lng:3.346030 };
+			map = new google.maps.Map(document.getElementById('map'), {
+				center:loc,
+				zoom: 14,
+				mapTypeId: 'hybrid'
+			});
+
+			infowindow = new google.maps.InfoWindow();
+
+		},function(error){
+
+		}
+	);
+	map.data.loadGeoJson('Abeokua_area.geojson');
+}
+$(document).ready(function(){
+	$("#hosp").click(function(){
+		deleteMarkers();
+		createMarkers("hospital");
+	});
+	 
+ 
+});
+
+function createMarkers(query){
+	var service = new google.maps.places.PlacesService(map);
+	console.log(map.getCenter());
+	service.textSearch({
+	    location: map.getCenter(),
+	    radius: 500,
+	    query: [query]
+	}, function(results, status){
+		if (status === google.maps.places.PlacesServiceStatus.OK){
+	    for (var i = 0; i < results.length; i++) {
+	    	createMarker(results[i]);
+	    }
+	}
+	});
+}
+
+function deleteMarkers(){
+	for (var i = 0; i < markers.length; i++){
+		markers[i].setMap(null);
+	}
+	markers = [];
+}
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    animation: google.maps.Animation.DROP,
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent("<img src=\"" + place.icon + "\"> <br><h1>" + place.name + "</h1><p>" + place.formatted_address + "</p>");
+    infowindow.open(map, this);
+  });
+
+  markers.push(marker);
+}
+
+</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDLIFDc3H8nRLLvA0I-sr2U_c9v5-QsUc&libraries=places&callback=initMap" async defer>
+	</script>
+ 
+	
+</body>
+<html>

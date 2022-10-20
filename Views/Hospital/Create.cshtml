@@ -1,0 +1,130 @@
+
+
+@model HettisentialMvc.CreateHospitalRequestModel
+
+
+  
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Sign Up</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="~/img/svg/logo.svg" type="image/x-icon">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+  <div class="layer"></div>
+<main class="page-center">
+  <article class="sign-up">
+    <h1 class="sign-up__title">Get started</h1>
+    <p class="sign-up__subtitle">Fill in The form To Create Hospital Account</p>
+    <form class="sign-up-form form"  asp-action="Create"method="post" enctype="multipart/form-data" asp-controller="Hospital">
+      <label class="form-label-wrapper">
+        <p class="form-label">HospitalName</p>
+        <input class="form-input" asp-for ="HealthCenterName" name="HealthCenterName" type="text" placeholder="Enter HospitalName" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">HospitalAddress</p>
+        <input class="form-input" asp-for="HealthcenterAddress" name="HealthcenterAddress"  type=" text" placeholder="Enter Hospital Adderess" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">HospitalPhoneNumber</p>
+        <input class="form-input" asp-for="HealthCenterPhoneNumber", name="HealthCenterPhoneNumber"  type="text" placeholder="Enter Hospital PhoneNumber " required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">HospitalEmail</p>
+        <input class="form-input" asp-for="HealthCenterEmail", name="HealthCenterEmail"   type="email" placeholder="Enter Hospital Email" required>
+      </label>
+      <label class="form-label-wrapper">
+        <p class="form-label">HospitalImage</p>
+        
+        <input class="form-input" type="file" name="HealthCenterImage" asp-for = "HealthCenterImage"   required>
+      </label>
+       <label class="form-label-wrapper">
+        <p class="form-label">HospitalCategory</p>
+        <select asp-for="HealthCenterCategory" name="HealthCenterCategory" asp-for="HealthCenterCategory" asp-items="@Html.GetEnumSelectList(typeof(HospitalCategory))" required></select>
+        <label class="form-label-wrapper">
+
+        <p class="form-label">HoursOfWork</p>
+        <input class="form-input" asp-for="HoursOfWork", name="HoursOfWork"   type=" text" placeholder="Input yOUR hOURS oF wORK" required>
+      </label>
+        </label>
+
+
+
+        
+          
+      <label class="form-label-wrapper">
+        <p class="form-label">StreetAddress</p>
+        <input class="form-input" asp-for="StreetAddress" name="StreetAddress"   type="text" placeholder="Enter your  StreetAddress " required>
+      </label>
+     
+      <label class="form-label-wrapper">
+        <p class="form-label">City</p>
+        <input class="form-input"  asp-for="City" name="City"  type="text" placeholder="Enter your City" required>
+      
+
+          <label class="form-label-wrapper">
+        <p class="form-label">Country</p>
+        <input class="form-input" class="form-control" asp-for="Country"  name="Country"  readonly value="Nigeria" type="text"  placeholder="Country" >
+
+        
+        
+      </label>
+
+        <p class="form-label">State</p>
+         @* <select style="scrollbar-3dlight-color:blue" asp-for="State" asp-items="ViewBag.States" id="state"> </select> *@
+          <select name="state" asp-for="State" type="text" id="state" class="form-control" placeholder="State"> </select>
+           
+                @* <span asp-validation-for="State" class="text-danger"></span> *@
+      </label> 
+  
+        <label class="form-label-wrapper">
+        <p class="form-label">LocalGovernmentArea</p>
+        @* <input class="form-input" asp-for="LocalGovernmentArea"  type="text" placeholder="Enter your LocalGovernmentArea" required> *@
+
+         @* <select style="scrollbar-3dlight-color:blue" asp-for="LocalGovernmentArea" id="lga"> </select> *@
+         
+                @* <span asp-validation-for="LocalGovernmentArea" class="text-danger"></span> *@
+
+                    <select  asp-validation-for="LocalGovernmentArea" name=" LocalGovernmentArea" asp-for="LocalGovernmentArea" onfocus="displayCities();" id="lga" type="text"  class="form-control" placeholder="LGA"></select>
+
+            
+      </label>
+  
+
+      <label class="form-label-wrapper">
+        <p class="form-label">PostalCode</p>
+        <input class="form-input" asp-for="PostalCode"  name="PostalCode"  type="number" placeholder="Enter  your PostalCode" required>
+      </label>
+
+        @* <p class="form-label">Password</p>
+        <input class="form-input"  asp-for="Password" type=" text" placeholder="Input Password" required>
+      </label> *@
+      </label>
+      <label class="form-checkbox-wrapper">
+        <input class="form-checkbox" type="checkbox"  >
+        <span class="form-checkbox-label">Remember me next time</span>
+      </label>
+      <button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+    </form>
+  </article>
+</main>
+<!-- Chart library -->
+<script src="~/plugins/chart.min.js"></script>
+<!-- Icons library -->
+<script src="~/plugins/feather.min.js"></script>
+<!-- Custom scripts -->
+<script src="~/js/script.js"></script>
+<script src="~/js/site.js" asp-append-version="true"  ></script>
+<script src="~/js/sitee.js" asp-append-version="true"  ></script>
+</body>
+
+</html>

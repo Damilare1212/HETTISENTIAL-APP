@@ -1,0 +1,100 @@
+
+
+
+@model IEnumerable<HettisentialMvc.HospitalDto>
+
+
+    <main id="main" class="main">
+
+       
+         <div class="pagetitle">
+       
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+
+        <div class="card-header" style="background-color:#65c9cd;">
+            <div class="card-title">
+                <h1 class="text-center">Registered Hospitals</h1>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        S/N
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        PhoneNumber
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    @* <th>
+                      
+                         Address
+                    </th> *@
+                    <th>
+                         Image
+                    </th>
+
+                    <th>
+                        Details
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                    <th>
+                        Update
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hospital in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => hospital.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => hospital.HealthCenterName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => hospital.HealthCenterPhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => hospital.HEalthCenterEmail)
+                        </td>
+                          @* <td>
+                            @Html.DisplayFor(modelItem => hospital.HealthCenterAddress)
+                        </td> *@
+
+                        <td>
+                             <td>
+                             <img class="card-img"  style="width: 300px; height: 300px;"   src="~/myImages/@hospital.HealthCenterImage">
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@hospital.Id">Details</a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@hospital.Id">Delete</a>
+                        </td>
+                         <td>
+                            <a asp-action="Update" asp-route-id="@hospital.Id">Update</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+       
+
+  
+</main>
+ 

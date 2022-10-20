@@ -1,0 +1,93 @@
+
+
+
+@model HettisentialMvc.HospitalDto
+
+<form asp-action="Profile" asp-controller="Hospial" >
+ <div class="pagetitle">
+    <h1>Profile</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+       
+        <li class="breadcrumb-item active">Profile</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section profile">
+    <div class="row">
+      <div class="col-xl-4">
+
+        <div class="card">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <h2>@User.Identity.Name</h2>
+            <h5><span>Hospital</span></h5>
+            <div class="social-links mt-2">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-8">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab"
+                  data-bs-target="#profile-overview">Overview</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change
+                  Password</button>
+              </li>
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <h5 class="card-title">About</h5>
+                <p class="small fst-italic"> Hospital Profile</p>
+
+                <h5 class="card-title"> Hospital Profile </h5>
+
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+
+                    <!-- List group with active and disabled items -->
+                    <ul class="list-group">
+                      <li class="list-group-item active" aria-current="true">YOUR HOSPITAL DETAILS</li>
+                      <li class="list-group-item"><b>NAME: </b> @Model.HealthCenterName</li>
+                      <li class="list-group-item"><b>ADDRESS: </b> @Model.HealthCenterAddress</li>
+                      <li class="list-group-item"><b>EMAIL: </b> @Model.HEalthCenterEmail</li>
+                      <li class="list-group-item" aria-disabled="true">
+                      </li>
+                    </ul><!-- End ist group with active and disabled items -->
+
+                  </div>
+                </div>
+              </div>
+         
+            </div>
+          </div>
+</form>

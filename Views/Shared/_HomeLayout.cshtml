@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HealthService Map</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet"  href="~/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+</head>
+<body>
+
+	<div class="ui">
+		<div class="buttons">
+			<div class="col-3">
+				<h1>AVAILABLE HEALTH SERVICES</h1>
+
+				
+
+
+			</div>
+			<div class="col-6">
+				
+				<h2  style  =  "color: white"  > CLICK THE BUTTON TO SHOW AVAILABLE HEALTH SERVICES: </h2> 
+
+				<button id="hosp"><strong>CLick</strong></button>
+
+
+
+               
+			   <li class="nav-item"><a  asp-controller="Home" asp-action="Index" style="margin-top: ;5px" style="color: ;white" class="btn-header-btn"><strong  >Home Page</strong></a></li>
+			 
+			
+			</div>
+		</div>
+	</div>
+	<div id="map">
+      
+
+	  <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+	</div>
+   <script asp-append-version="true"  src="~/js/index.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDLIFDc3H8nRLLvA0I-sr2U_c9v5-QsUc&libraries=places&callback=initMap" async defer>
+
+	</script>
+	 
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+<html>

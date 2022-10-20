@@ -1,0 +1,68 @@
+
+
+@model HettisentialMvc.HospitalDto
+
+
+  @if(ViewBag.measage != null)
+{
+    <div   style="text-align: center;" >
+   
+         <label style="font-weight: bolder;" style="color: black;"   >  @ViewBag.measage  </label>
+ 
+    </div>
+ 
+}
+
+@if(ViewBag.Error != null)
+        {
+            <div style="color: red; font-weight: bolder; background-color: white; padding: 5px">
+                <label  style="text-align: center">@ViewBag.Error</label>
+                
+            </div>
+        }
+<div>
+    <dl>
+        <dd>
+            Id
+        </dd>
+        <dt>
+            @Model.Id
+        </dt>
+        <dd>
+            Name
+        </dd>
+        <dt>
+            @Model.HealthCenterName
+        </dt>
+        <dd>
+            Id
+        </dd>
+        <dt>
+            @Model.Id
+        </dt>
+        <dd>
+           Address
+        </dd>
+        <dt>
+            @Model.HealthCenterAddress
+        </dt>
+        <dd>
+           PhoneNum
+        </dd>
+        <dt>
+            @Model.HealthCenterPhoneNumber
+        </dt>
+        <dd>
+           Email
+        </dd>
+        <dt>
+            @Model.HEalthCenterEmail
+        </dt>
+    </dl>
+    <span>Are you sure you want to delete this hospital?</span>
+    <form asp-action="Delete" asp-controller="Hospital" >
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" style= "color:Red" value="Delete" class="btn btn-danger"/>
+    </form>
+    <a  style = "color: white" asp-action="Index">Go back to list of Admin</a> 
+</div>
