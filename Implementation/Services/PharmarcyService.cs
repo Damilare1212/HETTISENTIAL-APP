@@ -15,6 +15,7 @@ namespace HettisentialMvc
         private readonly IPharmacyRepo _pharmacyRepo;
        private readonly IUserRepo _UserRepo;
           private readonly IRoleRepo _RoleRepo;
+          
           private readonly IWebHostEnvironment _Webhostenvironment;
          //   private readonly IEmailService _Mail;
         private readonly IAddressRepo _adderesRepo;

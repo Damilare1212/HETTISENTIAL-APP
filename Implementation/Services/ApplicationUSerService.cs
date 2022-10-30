@@ -20,18 +20,18 @@ namespace HettisentialMvc
               _UserRepo = userRepo;
               _RoleRepo = roleRepo;
               _Webhostenvironment = Webhost;
-              
+
           }
 
-              
 
-        
+
+
 
 
 
         public BaseResponseModel<PatientDto> Create(CreatePatientRequestModel model)
         {
-           
+
             var user = _AppUserRepo.ExistByEmail(model.Email);
             if (user)
             {
@@ -40,7 +40,7 @@ namespace HettisentialMvc
                     Measage = "  Patient   Already Exist ",
                     Status = false,
                 };
-                
+
             }
 
            var imageName = "";
@@ -50,17 +50,17 @@ namespace HettisentialMvc
                var imagePath = Path.Combine(imPath, "myImages");
                Directory.CreateDirectory(imagePath);
                var imageType= model.Image.ContentType.Split('/')[1];
-              
+
                     imageName = $"{Guid.NewGuid()}.{imageType}";
                     var fullPath = Path.Combine(imagePath, imageName);
                     using (var fileStream = new FileStream(fullPath, FileMode.Create))
                     {
                         model.Image.CopyTo(fileStream);
                     }
-              
-              
+
+
             }
-             else 
+             else
                {
                     return new BaseResponseModel<PatientDto>
                     {
@@ -69,13 +69,14 @@ namespace HettisentialMvc
                     };
                }
           var userr = new User
+
           {
               UserFirstName = model.FirstName,
               UserLastName = model.LastName,
               Email = model.Email,
                 Password = model.Password,
                 PhoneNumber = model.Phonenumber,
-                UserName = model.UserName,
+                UserName = model.UserName, 
 
 
           };
@@ -98,7 +99,7 @@ namespace HettisentialMvc
               Email = model.Email,
               User = userr,
               UserId = userr.Id,
-              
+
               UserImage =  imageName,
               PhoneNumber = model.Phonenumber,
               Address = model.Adderess,
@@ -113,7 +114,7 @@ namespace HettisentialMvc
             };
         }
 
-        
+
 
         public BaseResponseModel<PatientDto> Update(UpdatePatientRequestModel model, int id)
         {
@@ -165,7 +166,7 @@ namespace HettisentialMvc
                 Status = true,
                 Data = new PatientDto
                 {
-                     Fullname = $"{newStudent.Firstname} {newStudent.Lastname}", 
+                     Fullname = $"{newStudent.Firstname} {newStudent.Lastname}",
                     Email = newStudent.Email,
                      Image = imageName,
                 }
@@ -230,10 +231,10 @@ namespace HettisentialMvc
                 {
                     Id = newStudent.Id,
                     Fullname = $"{newStudent.Firstname} {newStudent.Lastname}",
-                    
+
                     Email = newStudent.Email,
-                   
-                   
+
+
                 }
             };
         }
@@ -255,7 +256,7 @@ namespace HettisentialMvc
                 Measage = "Appuser successfully retrieved",
                 Status = true,
                 Data = newStudent
-            }; 
+            };
         }
     }
 }

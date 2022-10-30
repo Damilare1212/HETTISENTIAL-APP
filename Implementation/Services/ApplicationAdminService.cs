@@ -62,7 +62,6 @@ namespace HettisentialMvc
                         model.AdminImage.CopyTo(fileStream);
                     }
               
-              
             }
              else 
                {
