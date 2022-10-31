@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj": {}
+    "c:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj": {
+    "c:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj",
+        "projectUniqueName": "c:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj",
         "projectName": "HettisentialMvc",
-        "projectPath": "C:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj",
+        "projectPath": "c:\\Users\\hp\\Documents\\HettisentialMvcold\\HettisentialMvc.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\HettisentialMvcold\\obj\\",
+        "outputPath": "c:\\Users\\hp\\Documents\\HettisentialMvcold\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,33 +46,33 @@
             },
             "MailKit": {
               "target": "Package",
-              "version": "[2.13.0, )"
+              "version": "[3.4.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.Recognizers.Text.DataTypes.TimexExpression": {
               "target": "Package",
-              "version": "[1.8.4, )"
+              "version": "[1.8.5, )"
             },
             "MimeKit": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.4.1, )"
             },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.7, )"
             },
             "Paystack.Net": {
               "target": "Package",
-              "version": "[0.7.7, )"
+              "version": "[1.1.0, )"
             },
             "Paystack.Net.SDK": {
               "target": "Package",
